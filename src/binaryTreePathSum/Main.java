@@ -23,7 +23,7 @@ public class Main {
 		
 		CheckPathSumOfBinaryTreeFunction solution = new CheckPathSumOfBinaryTreeFunction();
 		
-		System.out.println("Solution: " + solution.hasPathSum(root, sum));
+		System.out.println("Solution: " + solution.hasPathSum2(root, sum));
 
 	}
 	

@@ -21,38 +21,41 @@ public class CheckPathSumOfBinaryTreeFunction {
 	}
 
 	// Using two stack iterative way, slower than recursive
-	// public boolean hasPathSum(TreeNode root, int sum) {
-	// if(root == null){
-	// return false;
-	// }
+	public boolean hasPathSum2(TreeNode root, int sum) {
+		if (root == null) {
+			return false;
+		}
 
-	// Stack<TreeNode> node_stack = new Stack();
+		Stack<TreeNode> node_stack = new Stack();
 
-	// Stack<Integer> sum_stack = new Stack();
+		Stack<Integer> sum_stack = new Stack();
 
-	// node_stack.add(root);
-	// sum_stack.add(sum - root.val);
+		node_stack.add(root);
+		sum_stack.add(sum - root.val);
 
-	// while(!node_stack.isEmpty()){
-	// TreeNode current = node_stack.pop();
-	// int current_sum = sum_stack.pop();
+		while (!node_stack.isEmpty()) {
+			TreeNode current = node_stack.pop();
+			int current_sum = sum_stack.pop();
 
-	// // Then it is a leaf, if its zero, that means the sum path equal to sum
-	// if(current.left == null && current.right == null && current_sum == 0){
-	// return true;
-	// }
+			// If it is a leaf
+			// if sum path equal to zero
+			if (current.left == null && current.right == null && current_sum == 0) {
+				return true;
+			}
 
-	// if(current.left != null){
-	// node_stack.add(current.left);
-	// sum_stack.add(current_sum - current.left.val);
-	// }
+			// Add left children
+			if (current.left != null) {
+				node_stack.add(current.left);
+				sum_stack.add(current_sum - current.left.val);
+			}
 
-	// if(current.right != null){
-	// node_stack.add(current.right);
-	// sum_stack.add(current_sum - current.right.val);
-	// }
-	// }
+			// Add right children
+			if (current.right != null) {
+				node_stack.add(current.right);
+				sum_stack.add(current_sum - current.right.val);
+			}
+		}
 
-	// return false;
-	// }
+		return false;
+	}
 }
