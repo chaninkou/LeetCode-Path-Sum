@@ -1,4 +1,4 @@
-package binaryTreePathSum;
+package leetcode112;
 
 public class TreeNode {
 	int val;
