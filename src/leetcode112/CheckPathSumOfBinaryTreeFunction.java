@@ -9,9 +9,8 @@ public class CheckPathSumOfBinaryTreeFunction {
 		if (root == null) {
 			return false;
 		} else {
+			// if it reach leaf
 			// sum - root.val could also be sum == root.val
-			// This is the leaf, if the it's zero, then we found the target sum
-			// of 22
 			if (root.left == null && root.right == null && sum - root.val == 0) {
 				return true;
 			}
@@ -20,7 +19,7 @@ public class CheckPathSumOfBinaryTreeFunction {
 		}
 	}
 
-	// Using two stack iterative way, slower than recursive
+	// Using two stack iterative way, slower than recursive, but easy to understand
 	public boolean hasPathSum2(TreeNode root, int sum) {
 		if (root == null) {
 			return false;
